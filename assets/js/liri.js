@@ -12,23 +12,40 @@
 
 //   ==========end of html front end display related JS =======================
 
+// Liri will take the following commands:
+    // concert-this
+    //spotifiy-this-song
+    //movie-this
+    //do-what-it-says
+
 require('dotenv').config()
 
-
 // this config require I believe will apply to all the APIs thus placed up here:
-var config = require("./assets/js/config.js")
+var datakeys = require("./assets/js/keys.js")
+var fs =require("fs");
+var request = require("request");
+var inquierer = require("inquirer");
+var space = "\n" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0"; //saw another program utilize this to save space
 // ===============Spotify=======================================
-
 var Spotify = require('node-spotify-api');
 
-var spotify = new Spotify({
-  id: config.spotify.spotifyClientID,              //you must create your own spotify API id
-  secret: config.spotify.spotifyClientSecret       // you must create your own spotify API secret
-});
+var spotify = new Spotify(
+  keys.spotify
+  // id: config.spotify.spotifyClientID,              //you must create your own spotify API id
+  // secret: config.spotify.spotifyClientSecret       // you must create your own spotify API secret
+);
  
-spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
+spotify.search({ type: 'track', query: songName }, function(err, data) {
   if (err) {
     return console.log('Error occurred: ' + err);
+  } else {
+    output = "Liri found this for you: " + 
+    space + "Song Name: " + "'" + songName.toUpperCase() + "'" +
+    space + "Album Name: " + data.tracks.items[0].album.name +
+    space + "Artist Name: " + data.tracks.items[0].album.artists[0].name +
+    space +"url: " + data.tracks.itmes[0].album.external_urls.spotify;
+    console.log(output);
+    writeToLog(output);
   }
  
 console.log(data); 
