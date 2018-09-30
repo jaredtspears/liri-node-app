@@ -12,6 +12,9 @@
 
 //   ==========end of html front end display related JS =======================
 
+require('dotenv').config()
+
+
 // this config require I believe will apply to all the APIs thus placed up here:
 var config = require("./assets/js/config.js")
 // ===============Spotify=======================================

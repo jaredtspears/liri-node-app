@@ -1,2 +1,9 @@
 # dont track content for these files
-config.js
+
+#this was added just because initially I had my keys in this file
+keys.js
+#========================================
+
+node_modules
+.DS_Store
+.env
