@@ -71,7 +71,7 @@ function concertThis(){
 function movieThis(movieName){
 var axios = require("axios")
 // Then run a request to the OMDB API with the movie specified
-axios.get("http://www.omdbapi.com/?i=tt3896198&apikey="+ omdb).then(
+axios.get("http://www.omdbapi.com/?i=tt3896198&apikey="+ OMDB_KEY).then(
   function(response) {
     console.log(response.data);
   }
