@@ -1,9 +1,15 @@
 # dont track content for these files
 
 #this was added just because initially I had my keys in this file
-keys.js
+
 #========================================
 
 node_modules
 .DS_Store
 .env
+
+# didnt realize last week when I started this I wouldnt need css or html so I had it in here
+# I didnt erease because I knew I was working on something... not the right thing though
+style.css
+index.html
+images.jpg
