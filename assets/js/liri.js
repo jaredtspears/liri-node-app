@@ -42,7 +42,6 @@ switch(LiriReturn) {
     )
 }
 }
-
 function SpotifyThisSong(){
 inquirer
   .prompt([
@@ -79,7 +78,6 @@ inquirer
                     
 }
 function concertThis(){
-//need to search for name of venue, venue location, date of event using moments.js probably MM/DD/YYYY
 inquirer
 .prompt([
   {
@@ -173,7 +171,6 @@ Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
     }
   });
 }
-
 function doWhatItSays(){
     fs.readFile("random.txt", "utf8", function(err, data) {
         console.log("");
